@@ -1,0 +1,202 @@
+<title>note貼り付けシート</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;700&family=Zen+Old+Mincho:wght@700&display=swap">
+<style>
+/* 1列のコピー台。手順の番号=noteへ貼る順番 */
+:root{
+  --bg:#FAF7F2; --surface:#FFFFFF; --ink:#22304F; --muted:#6B6F7B; --line:#E6DED3;
+  --accent:#C9877F; --accent-ink:#FFFFFF; --ok:#3E7D5A; --paid:#F4E4E1;
+  --display:"Zen Old Mincho","Hiragino Mincho ProN","Yu Mincho",serif;
+  --body:"Zen Kaku Gothic New","Hiragino Sans","Yu Gothic",system-ui,sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#171B26; --surface:#1F2432; --ink:#ECE8E2; --muted:#A3A7B3; --line:#333A4C;
+  --accent:#D89A92; --accent-ink:#1A1D27; --ok:#7FC39C; --paid:#3A2C2E; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#171B26; --surface:#1F2432; --ink:#ECE8E2; --muted:#A3A7B3; --line:#333A4C;
+  --accent:#D89A92; --accent-ink:#1A1D27; --ok:#7FC39C; --paid:#3A2C2E; color-scheme:dark}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.75}
+.wrap{max-width:720px;margin:0 auto;padding-block:24px 64px;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));
+  display:flex;flex-direction:column;gap:20px}
+h1{font-family:var(--display);font-size:24px;line-height:1.4;margin:0;text-wrap:balance}
+.lead{color:var(--muted);margin:0}
+.step{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:16px;display:flex;flex-direction:column;gap:12px;min-width:0}
+.step.paidline{background:var(--paid);border-style:dashed}
+.head{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.num{font-family:var(--display);font-size:20px;color:var(--accent);min-width:1.4em}
+.name{font-weight:700;font-size:16px;flex:1;min-width:0}
+.how{color:var(--muted);font-size:13px;margin:0}
+button{font:inherit;font-weight:700;background:var(--accent);color:var(--accent-ink);border:0;border-radius:999px;padding:10px 20px;cursor:pointer;min-height:44px}
+button:focus-visible{outline:3px solid var(--ink);outline-offset:2px}
+button.done{background:var(--ok)}
+.box{border-top:1px solid var(--line);padding-top:12px;max-height:45vh;overflow:auto;min-width:0;overflow-wrap:anywhere}
+.box h2{font-size:18px;margin:1.4em 0 .4em}
+.box h3{font-size:16px;margin:1.2em 0 .3em}
+.box p{margin:.2em 0 1em}
+.box ul,.box ol{margin:.2em 0 1em;padding-left:1.4em}
+.oneline{font-weight:700}
+.msg{font-size:13px;color:var(--ok);margin:0;min-height:1.2em}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+
+<div class="wrap">
+  <h1>note貼り付けシート</h1>
+  <p class="lead">上から順に「コピー」を押して、noteの編集画面に貼り付けてください。見出し・太字・箇条書きもそのまま貼れます。</p>
+
+  <section class="step">
+    <div class="head"><span class="num">1</span><span class="name">タイトル</span><button type="button" id="b-title" data-target="c-title">コピー</button></div>
+    <p class="how">noteの「記事タイトル」欄に貼り付け</p>
+    <div class="box oneline" id="c-title">緊張は思うほどバレていない。40代からのデートを楽にする心理学</div>
+    <p class="msg" id="m-title" aria-live="polite"></p>
+  </section>
+
+  <section class="step">
+    <div class="head"><span class="num">2</span><span class="name">本文(無料部分)</span><button type="button" id="b-free" data-target="c-free">コピー</button></div>
+    <p class="how">本文の最初に貼り付け</p>
+    <div class="box" id="c-free"><h2>久しぶりのデートが怖いのは、あなただけではありません</h2>
+<p>「何年ぶりかのデートで、何を話せばいいか分からない」<br>「緊張して顔がこわばり、楽しくなさそうに見られないか心配」<br>「相手が本当に楽しんでいるのか、社交辞令なのか分からない」</p>
+<p>40代になってからの恋愛には、こうした不安がつきものです。<br>仕事や家庭のことで忙しい時期が続き、恋愛から何年も離れていた方も多いでしょう。</p>
+<p>大人の恋愛について書いているコラムでも、40代からは「今から恋愛できるのか不安」という声をよく聞く、と紹介されています。<br>緊張するのは、それだけ相手との時間を大切にしたいと思っている証拠ともいえます。</p>
+<p>このnoteでは、心理学の研究で分かっていることをもとに、次の3つをお伝えします。</p>
+<ul><li><strong>緊張しすぎてしまう理由と、その思い込みのほどき方</strong></li><li><strong>デートの前と最中に、その場で試せる具体的な方法</strong></li><li><strong>次のデートに自然につなげる誘い方</strong></li></ul>
+<p>「緊張しない人になる」方法ではありません。<br>緊張したままでも、落ち着いて相手と向き合えるようになるための方法です。</p>
+<h2>緊張しすぎてしまう、3つの思い込み</h2>
+<p>デートで必要以上に緊張してしまう背景には、多くの人が持っている「思い込み」があります。</p>
+<h3>思い込み①:緊張が相手にバレている</h3>
+<p>「手が震えているのが見えているかも」「声が上ずっているのが伝わっているかも」。<br>こう感じることはありませんか。</p>
+<p>心理学では、これを<strong>「透明性の錯覚」</strong>と呼びます。<br>自分の気持ちは、実際よりも相手に伝わっていると思い込みやすい、という人間の傾向です。<br>人前でスピーチをする実験でも、話し手が思っているほど、聞き手は緊張に気づいていなかったと報告されています。</p>
+<p>あなたが感じている緊張の多くは、相手からはほとんど見えていません。</p>
+<h3>思い込み②:相手は自分をあまり好きではなかった</h3>
+<p>初対面の人と話したあと、「つまらないと思われたかも」と落ち込んだ経験はありませんか。</p>
+<p>これも研究で知られている傾向です。<br>初対面の会話のあと、人は<strong>「相手が自分をどれくらい好意的に見ていたか」を低く見積もりやすい</strong>ことが分かっています。<br>これは<strong>「好意のギャップ」</strong>と呼ばれています。</p>
+<p>デートのあとの「失敗したかも」という気持ちは、実際よりも悪く感じているだけかもしれません。</p>
+<h3>思い込み③:若い頃のようにできないといけない</h3>
+<p>20代の頃のように、テンポよく話を盛り上げなければいけない。<br>そう思うほど、体はこわばってしまいます。</p>
+<p>40代男性を対象にしたある調査では、恋人に求める条件の1位は「性格や相性」(60%)でした。<br>大人のデートで相手が見ているのは、話のうまさよりも<strong>「一緒にいて安心できるか」</strong>ではないでしょうか。<br>落ち着いた雰囲気や、相手の話をていねいに聞く姿勢は、年齢を重ねたからこそ出せる魅力です。</p>
+<h2>緊張は「なくす」より「付き合う」</h2>
+<p>ここまで読んで、少し気持ちが軽くなったでしょうか。</p>
+<p>大切なのは、緊張をゼロにしようとしないことです。<br>緊張をなくそうとするほど、「まだ緊張している」と気になってしまいます。</p>
+<p>実は、緊張しているときの心臓のドキドキは、ワクワクしているときの体の状態とよく似ています。<br>この性質を使うと、緊張を<strong>「味方」に変える</strong>ことができます。</p>
+<p>恋愛心理学で有名な<strong>「吊り橋実験」</strong>も、この性質に関わる研究です。<br>揺れる吊り橋を渡った男性のほうが、頑丈な橋を渡った男性よりも、そこで出会った女性に好意を持ちやすかったという結果が報告されています。<br>ドキドキの理由を、目の前の相手へのときめきと取り違えやすい、というわけです。<br>(ただし、この実験には「ドキドキの度合いを実際には測っていない」など、方法に疑問を示す指摘もあります)</p>
+<p>少なくとも、<strong>ドキドキしていること自体を怖がる必要はありません</strong>。</p>
+<p>この先の有料部分では、次の内容を具体的に紹介します。</p>
+<ul><li>デートの前に5分でできる、緊張をやわらげる呼吸のしかた</li><li>緊張を「ワクワク」に変える、たった一言の言い換え</li><li>会話が自然に続き、相手に好印象を持たれやすい質問のしかた</li><li>恋愛心理学で知られる、距離が自然に縮まる「自分の話」のしかた</li><li>「楽しんでくれているかな?」と不安になったときの受け止め方</li><li>次のデートに自然につなげる誘い方</li></ul>
+<p>どれも、次のデートからすぐ試せる内容です。</p></div>
+    <p class="msg" id="m-free" aria-live="polite"></p>
+  </section>
+
+  <section class="step paidline">
+    <div class="head"><span class="num">3</span><span class="name">ここで有料エリアを設定</span></div>
+    <p class="how" style="margin:0">無料部分の最後の行「どれも、次のデートからすぐ試せる内容です。」の下で改行し、次の有料部分を貼り付けます。公開設定の画面で「有料エリア設定」を開き、この位置に境界線を合わせてください。価格は100円です。</p>
+  </section>
+
+  <section class="step">
+    <div class="head"><span class="num">4</span><span class="name">本文(有料部分)</span><button type="button" id="b-paid" data-target="c-paid">コピー</button></div>
+    <p class="how">無料部分のすぐ下に貼り付け</p>
+    <div class="box" id="c-paid"><h2>デート前にできる、3つの準備</h2>
+<h3>準備①:息を「長く吐く」呼吸を5分</h3>
+<p>緊張しているとき、呼吸は浅く速くなりがちです。<br>そこで、<strong>吸う息より吐く息を長くする</strong>呼吸を試してみてください。</p>
+<p>2023年にスタンフォード大学の研究チームが発表した研究では、<strong>1日5分、吐く息を長くする呼吸</strong>を1か月続けた人たちに、不安の軽減が見られ、前向きな気分の改善は比べた方法の中で最も大きかったと報告されています。</p>
+<p><strong>やり方</strong></p>
+<ol><li>椅子に座るか、楽な姿勢で立つ</li><li>鼻から息を吸う</li><li>吸い切ったところで、もう一度だけ鼻から少し吸い足す</li><li>口から、ゆっくり長く吐き切る(吸うときの2倍くらいの時間をかけるイメージ)</li><li>これを5分ほどくり返す</li></ol>
+<p><strong>タイミング</strong>:デートの待ち合わせに向かう電車の中や、お店に入る前がおすすめです。</p>
+<p><strong>注意</strong>:息苦しさやめまいを感じたら、すぐにやめて普段の呼吸に戻してください。無理に長く吐こうとしなくて大丈夫です。</p>
+<h3>準備②:「緊張している」を「楽しみになってきた」に言い換える</h3>
+<p>前の章で、緊張とワクワクは体の状態がよく似ている、とお伝えしました。</p>
+<p>ハーバード大学の研究では、人前で歌ったりスピーチしたりする前に、<strong>「落ち着いている」ではなく「ワクワクしている」と声に出した人のほうが、よい結果を出した</strong>と報告されています。</p>
+<p>「落ち着こう」と自分に言い聞かせても、ドキドキはなかなか止まりません。<br>それなら、ドキドキしたまま意味だけを変えてしまいましょう。</p>
+<p><strong>やり方</strong></p>
+<ul><li>ドキドキしてきたら、小さな声で(人がいるところでは心の中で)「楽しみになってきた」と言う</li><li>「失敗しないように」ではなく「どんな人か知るのが楽しみ」と考える</li></ul>
+<h3>準備③:相手に聞いてみたいことを3つ用意する</h3>
+<p>「何を話せばいいか分からない」という不安は、事前の準備でかなり軽くなります。<br>ポイントは、<strong>自分が話すネタではなく、相手に聞きたいことを用意する</strong>ことです。</p>
+<p><strong>用意しておくと使いやすい質問の例</strong></p>
+<ul><li>最近ハマっていること、楽しみにしていることは何ですか?</li><li>お休みの日は、どんなふうに過ごすことが多いですか?</li><li>(プロフィールやこれまでのやり取りから)〇〇がお好きなんですよね。きっかけは何だったんですか?</li></ul>
+<p>会話の中で<strong>共通点</strong>が見つかったら、「私もです!」と素直に伝えてみてください。<br>恋愛心理学では、考え方や好みが似ている相手ほど好意を持ちやすい<strong>「類似性の法則」</strong>が知られています。<br>ただし、共通点を無理に作る必要はありません。ないものを「私も」と言うと、あとで話が合わなくなります。</p>
+<p>なぜ「質問」がよいのかは、次の章でお伝えします。</p>
+<h2>デート中に使える、4つのコツ</h2>
+<h3>コツ①:「追いかけ質問」をする</h3>
+<p>ハーバード大学の研究チームが、お見合い形式の短いデートの会話を分析しました。<br>その結果、<strong>質問を多くした人ほど、相手から「また会いたい」(2回目のデートを受けてもらえる)と思われやすい</strong>ことが分かりました。</p>
+<p>なかでも効果が大きかったのが、相手の答えをもう一歩深く聞く<strong>「追いかけ質問」</strong>です。</p>
+<p><strong>例</strong></p>
+<ul><li>相手「最近、山登りを始めたんです」</li><li>あなた「いいですね! どこの山に行かれたんですか?」(追いかけ質問)</li><li>相手「〇〇山です。思ったよりきつくて…」</li><li>あなた「えっ、どのあたりが一番きつかったですか?」(さらに追いかけ質問)</li></ul>
+<p>追いかけ質問は、「あなたの話をちゃんと聞いていますよ」というメッセージになります。<br>自分が話すことを考えなくてよいので、緊張しているときほど助けになる方法です。</p>
+<p><strong>注意</strong>:質問ばかり続くと、取り調べのようになってしまいます。<br>相手の答えに「分かります、私も〜」と短く自分の話を添えると、自然な会話になります。</p>
+<h3>コツ②:自分の話は「少しずつ、お互いに」</h3>
+<p>聞くことが大切とはいえ、自分のことをまったく話さないと、相手は距離を感じてしまいます。<br>そこで知っておきたいのが、恋愛心理学で知られる<strong>「自己開示の返報性」</strong>です。</p>
+<p>人は、相手が自分のことを打ち明けてくれると、自分も同じくらい打ち明けたくなる傾向があります。<br>ある実験では、<strong>少しずつ深くなる質問に2人で交互に答え合った初対面のペアは、表面的な質問をし合ったペアよりも、ずっと親しさを感じるようになった</strong>と報告されています(約45分の会話です)。</p>
+<p>ポイントは、<strong>いきなり深い話をしないこと</strong>です。<br>初めてのデートで、過去の離婚や悩みを打ち明けると、相手は受け止めきれずに戸惑ってしまいます。</p>
+<p><strong>話の深さの目安</strong></p>
+<ol><li>1回目のデート:好きなもの、休日の過ごし方、最近うれしかったこと</li><li>2〜3回目:仕事で大切にしていること、これからやってみたいこと</li><li>もっと親しくなってから:これまでの恋愛や家族のこと、悩み</li></ol>
+<p>相手が少し深い話をしてくれたら、同じくらいの深さで自分の話を返す。<br>この「お互いさま」のくり返しが、自然に距離を縮めてくれます。</p>
+<h3>コツ③:相手のサインは「1つ」で判断しない</h3>
+<p>「楽しんでくれているかな?」と気になったときの、目安になるサインがあります。</p>
+<p><strong>相手が会話を楽しんでいるときに見られやすいサイン</strong></p>
+<ul><li>体や顔がこちらを向いている</li><li>あなたの話に、質問を返してくれる</li><li>笑顔が多い、うなずきが多い</li><li>予定していた時間を過ぎても、話を続けようとしてくれる</li></ul>
+<p>ただし、これらは<strong>「表れやすい」サインであって、本音を言い当てるものではありません</strong>。<br>もともと表情が控えめな人や、相手も緊張している場合もあります。</p>
+<p>1つのしぐさだけで「脈なしだ」と決めつけないでください。<br>前の章でお伝えした「好意のギャップ」のとおり、相手はあなたが思っているより、あなたとの時間を楽しんでいるかもしれません。</p>
+<h3>コツ④:沈黙は「失敗」ではない</h3>
+<p>会話が途切れると、焦って何か話さなければと思ってしまいます。<br>でも、大人のデートでは、少しの沈黙は自然なことです。</p>
+<p>沈黙が気になったときは、次のように<strong>目の前のものを話題にする</strong>と、無理なく会話が戻ります。</p>
+<ul><li>「このお店の雰囲気、落ち着きますね」</li><li>「これ、おいしいですね。〇〇さんは普段どんな料理がお好きですか?」</li></ul>
+<p>どうしても気まずいときは、用意しておいた3つの質問の出番です。</p>
+<h2>次のデートにつなげる誘い方</h2>
+<p>デートが楽しかったら、別れ際かその日のうちに、次の約束につなげましょう。</p>
+<p>ポイントは、<strong>「また今度」ではなく、具体的に提案すること</strong>です。<br>「また今度」は社交辞令と受け取られやすい言葉です。<br>日にちや行き先を具体的に出すことで、本気で会いたいと思っていることが伝わります。</p>
+<p><strong>例</strong></p>
+<ul><li>「今日話していた〇〇のお店、今度一緒に行きませんか? 来週か再来週のお休みはいかがですか?」</li><li>「〇〇の話、もっと聞きたいです。よかったら、またお茶しませんか?」</li></ul>
+<p>次のデートは、<strong>長い時間でなくても大丈夫です</strong>。<br>恋愛心理学には、会う回数が増えるほど相手に親しみを感じやすくなる<strong>「単純接触効果」</strong>という考え方があります。<br>1日がかりのデートを1回するより、1〜2時間のお茶や食事を何回か重ねるほうが、お互いに気楽で、自然に距離が縮まりやすくなります。<br>(ただし、相手が乗り気でないのに何度も会おうとすると逆効果です)</p>
+<p>その日のうちに送るお礼のメッセージは、<strong>短く、楽しかったことを具体的に1つ</strong>入れると気持ちが伝わります。</p>
+<ul><li>「今日はありがとうございました。〇〇の話、とても楽しかったです。また聞かせてください」</li></ul>
+<p><strong>注意</strong>:相手からはっきりした返事がないときは、何度も誘い直さないことが大切です。<br>相手のペースを尊重する姿勢も、大人の恋愛では大きな魅力になります。</p>
+<h2>つまずきやすい場面と対処法</h2>
+<p><strong>Q. 当日になって、やっぱり行くのが怖くなってしまいました</strong></p>
+<p>A. その気持ちは自然なことです。まずは息を長く吐く呼吸を5分試してみてください。「楽しみになってきた」と言い換えて、「今日は相手がどんな人か知りに行くだけ」と考えると、気持ちが軽くなります。</p>
+<p><strong>Q. 追いかけ質問をしようとしても、言葉が出てきません</strong></p>
+<p>A. 相手の言葉をそのままくり返すだけでも大丈夫です。「山登りを始めたんです」「山登りですか!」とくり返すと、相手が自然に続きを話してくれることが多いです。</p>
+<p><strong>Q. デートのあと、失敗したと思って落ち込んでいます</strong></p>
+<p>A. 「好意のギャップ」を思い出してください。人は会話のあと、相手からの印象を低く見積もりやすい傾向があります。お礼のメッセージを送って、相手の返事を待ってみましょう。</p>
+<p><strong>Q. 相手の反応が薄く、楽しんでいないように見えました</strong></p>
+<p>A. 相手も緊張していたのかもしれません。しぐさ1つで判断せず、お礼のメッセージへの返事や、次の誘いへの反応を見て判断しましょう。</p>
+<h2>まとめ</h2>
+<p>最後に、このnoteのポイントを3つにまとめます。</p>
+<ol><li><strong>緊張は、あなたが思うほど相手に伝わっていない。そして相手は、あなたが思うより好意的に見ている</strong></li><li><strong>緊張はなくすより付き合う。長く吐く呼吸と「楽しみになってきた」の言い換えで、緊張を味方にする</strong></li><li><strong>話すより聞く。追いかけ質問で相手に興味を示し、自分の話は少しずつ、お互いに。次の約束は具体的に、短い時間で重ねる</strong></li></ol>
+<p><strong>今日やること</strong>:次に会う相手に聞いてみたいことを、3つメモに書き出してみてください。</p>
+<p>40代からの恋愛は、若い頃とは違う良さがあります。<br>焦らず、あなたのペースで楽しんでください。</p>
+<p>最後まで読んでいただき、ありがとうございました。<br>このnoteが少しでも役に立ったら、スキやフォローで応援していただけるとうれしいです。<br>Threadsでも、40代からの恋愛に役立つ情報を発信しています。</p>
+<p>次回は「40代の『脈あり』は若い頃と違う」をテーマに、<br>LINEより「会う約束」で見る、大人の距離の縮め方をお届けする予定です。<br>フォローしていただくと、公開のお知らせが届きます。</p>
+<h3>参考にした研究</h3>
+<ul><li>Gilovich, T., Savitsky, K., &amp; Medvec, V. H. (1998). The illusion of transparency: Biased assessments of others' ability to read one's emotional states. <em>Journal of Personality and Social Psychology</em>.(透明性の錯覚)</li><li>Savitsky, K., &amp; Gilovich, T. (2003). The illusion of transparency and the alleviation of speech anxiety. <em>Journal of Experimental Social Psychology</em>.(スピーチの実験)</li><li>Boothby, E. J., Cooney, G., Sandstrom, G. M., &amp; Clark, M. S. (2018). The liking gap in conversations. <em>Psychological Science</em>.(好意のギャップ)</li><li>Brooks, A. W. (2014). Get excited: Reappraising pre-performance anxiety as excitement. <em>Journal of Experimental Psychology: General</em>.(緊張をワクワクに言い換える)</li><li>Huang, K., Yeomans, M., Brooks, A. W., Minson, J., &amp; Gino, F. (2017). It doesn't hurt to ask: Question-asking increases liking. <em>Journal of Personality and Social Psychology</em>.(質問と好意)</li><li>Balban, M. Y., et al. (2023). Brief structured respiration practices enhance mood and reduce physiological arousal. <em>Cell Reports Medicine</em>.(吐く息を長くする呼吸)</li><li>Dutton, D. G., &amp; Aron, A. P. (1974). Some evidence for heightened sexual attraction under conditions of high anxiety. <em>Journal of Personality and Social Psychology</em>.(吊り橋実験)</li><li>Byrne, D. (1971). <em>The Attraction Paradigm</em>. Academic Press.(類似性の法則)</li><li>Aron, A., et al. (1997). The experimental generation of interpersonal closeness. <em>Personality and Social Psychology Bulletin</em>.(自己開示と親しさ)</li><li>Zajonc, R. B. (1968). Attitudinal effects of mere exposure. <em>Journal of Personality and Social Psychology Monograph Supplement</em>.(単純接触効果)</li><li>亀山早苗「40代の恋愛」コラム(All About)</li><li>40代男性の恋愛観調査(All About ニュース)</li></ul>
+<p>※ 研究の結果は、すべての人に同じ効果があることを保証するものではありません。</p></div>
+    <p class="msg" id="m-paid" aria-live="polite"></p>
+  </section>
+
+  <section class="step">
+    <div class="head"><span class="num">5</span><span class="name">ハッシュタグ</span><button type="button" id="b-tags" data-target="c-tags">コピー</button></div>
+    <p class="how">公開設定の「ハッシュタグ」欄に貼り付け</p>
+    <div class="box oneline" id="c-tags">#40代の恋愛 #大人の恋愛 #恋愛心理学 #デート #婚活 #アラフォー #心理学</div>
+    <p class="msg" id="m-tags" aria-live="polite"></p>
+  </section>
+
+  <p class="lead">貼り付けたら、プレビューで見出し・改行・有料エリアの位置を確認してから公開してください。</p>
+</div>
+
+<script>
+document.querySelectorAll('button[data-target]').forEach(function(btn){
+  btn.addEventListener('click',function(){
+    var el=document.getElementById(btn.dataset.target);
+    var msg=document.getElementById('m-'+btn.dataset.target.slice(2));
+    var html=el.innerHTML, text=el.innerText;
+    function ok(){btn.textContent='コピーしました';btn.classList.add('done');msg.textContent='noteに貼り付けてください';
+      setTimeout(function(){btn.textContent='コピー';btn.classList.remove('done')},2500)}
+    function manual(){var r=document.createRange();r.selectNodeContents(el);var s=window.getSelection();s.removeAllRanges();s.addRange(r);
+      var done=false;try{done=document.execCommand('copy')}catch(e){}
+      if(done){ok()}else{msg.textContent='文章を選択しました。長押しして「コピー」を選んでください'}}
+    try{
+      if(window.ClipboardItem&&navigator.clipboard&&navigator.clipboard.write){
+        navigator.clipboard.write([new ClipboardItem({'text/html':new Blob([html],{type:'text/html'}),'text/plain':new Blob([text],{type:'text/plain'})})]).then(ok,manual);
+      }else{manual()}
+    }catch(e){manual()}
+  });
+});
+</script>
